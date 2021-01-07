@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title></title>
+
+    <style>
+      body {
+        background-color: #ccdaee;
+        text-align: center;
+      }
+
+      h3 {
+        color: #002456;
+        font-size: 48px;
+        padding: 20px;
+        text-shadow: 0 0 5px white;
+      }
+
+      .container {
+        padding-left: 50px;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+      }
+
+      form.form-group {
+          display: flex;
+          flex-direction: column;
+      }
+
+      .input1 {
+        border-radius: 5px;
+        margin-top: 20px;
+        height: 30px;
+        font-size
+      }
+
+       .input2 {
+        border-radius: 5px;
+        margin-top: 20px;
+        height: 30px;
+        font-size
+      }
+
+       .input3 {
+        border-radius: 5px;
+        margin-top: 20px;
+        height: 30px;
+        font-size
+      }
+
+      .inputSubmit {
+        background-color: #007ec7;
+        border-radius: 8px;
+        width: 50%;
+        height: 35px;
+        padding: 0px;
+        margin:5px 0px 5px 45px;
+      }
+      .demoAns{
+          border: 2px solid #002456;
+          border-radius: 5px;
+          height: 25px;
+
+          margin: 0px 20px 10px 20px;
+      }
+
+      p {
+          color: yellowgreen;
+          text-align: center
+          }
+    </style>
+  </head>
+
+  <body>
+    <h3>Quadratic equation</h3>
+    <div class="container">
+      <div class="div"></div>
+      <form class="form-group">
+        <label class="demoAns" id="demo"></label>
+        <p>OR</p>
+        <label class="demoAns" id="demo1"></label>
+        <input
+          class="input1"
+          id="inputA"
+          type="text"
+          placeholder="Enter value for a"
+        />
+        <input
+          class="input2"
+          id="inputB"
+          type="text"
+          placeholder="Enter value for b"
+        />
+        <input
+          class="input3"
+          id="inputC"
+          type="text"
+          placeholder="Enter value for c"
+        />
+        <input
+          class="inputSubmit"
+          onClick="onClick()"
+          type="button"
+          value="Submit"
+        />
+      </form>
+    </div>
+
+    <script>
+      function onClick() {
+        const a = document.getElementById("inputA").value;
+        const b = document.getElementById("inputB").value;
+        const c = document.getElementById("inputC").value;
+        const d = b ** 2 - 4 * a * c;
+        const divisor = 2 * a;
+        if ((a || b || c) === 0) {
+          document.getElementById("demo").innerHTML = "Invalid roots";
+        } else {
+          var ansA = Math.round((-b + Math.sqrt(d)) / divisor).toFixed(2);
+          var ansB = (-b - Math.sqrt(d)) / divisor;
+          if ((ansA && ansB) === 0) {
+            document.getElementById("demo").innerHTML = "Invalid roots";
+          } else {
+            document.getElementById("demo").innerHTML = ansA;
+            document.getElementById("demo1").innerHTML = ansB;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
